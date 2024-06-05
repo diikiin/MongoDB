@@ -1,3 +1,7 @@
 spring:
   application:
     name: SpringBoot MongoDB
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:uri}
+      database: ${MONGODB_DATABASE:database}
