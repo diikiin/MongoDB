@@ -23,7 +23,7 @@ public class Movie {
     private String rated;
     private Awards awards;
     private String lastupdated;
-    private Integer year;
+    private String year;
     private Imdb imdb;
     private List<String> countries;
     private String type;

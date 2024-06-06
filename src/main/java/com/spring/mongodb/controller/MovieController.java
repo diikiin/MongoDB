@@ -3,6 +3,8 @@ package com.spring.mongodb.controller;
 import com.spring.mongodb.model.movies.Movie;
 import com.spring.mongodb.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +17,11 @@ public class MovieController {
     private final MovieRepository movieRepository;
 
     @GetMapping
+    public Page<Movie> getPage(Pageable pageable) {
+        return movieRepository.findAll(pageable);
+    }
+
+    @GetMapping("/all")
     public List<Movie> getAll() {
         return movieRepository.findAll();
     }

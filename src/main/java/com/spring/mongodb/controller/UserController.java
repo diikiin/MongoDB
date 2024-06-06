@@ -3,6 +3,8 @@ package com.spring.mongodb.controller;
 import com.spring.mongodb.model.users.User;
 import com.spring.mongodb.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +17,11 @@ public class UserController {
     private final UserRepository userRepository;
 
     @GetMapping
+    public Page<User> getPage(Pageable pageable) {
+        return userRepository.findAll(pageable);
+    }
+
+    @GetMapping("/all")
     public List<User> getAll() {
         return userRepository.findAll();
     }
